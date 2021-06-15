@@ -1,5 +1,5 @@
 class Api::FactsController < ApplicationController
-    before_action :set_fact, only: [:show, :update, :delete]
+    before_action :set_fact, only: [:show, :update, :destroy]
     def index
         render json: Fact.all
     end
@@ -25,7 +25,8 @@ class Api::FactsController < ApplicationController
         end
     end
 
-    def delete
+    def destroy
+        render json: @fact.destroy
     end
 
     private
